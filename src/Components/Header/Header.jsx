@@ -48,7 +48,7 @@ const Header = () => {
 
                 </span>
 
-                <div className={` w-10/12 p-5 bg-red-300  md:hidden  absolute ${open ? 'top-16 ' : 'hidden '}`}>
+                <div className={` w-10/12 p-5 bg-red-300  md:hidden z-10  absolute ${open ? 'top-16 ' : 'hidden '}`}>
                     <ul className='overflow-hidden flex flex-col gap-4  w-full'>
 
                         <NavLink to='/'>Home</NavLink>
