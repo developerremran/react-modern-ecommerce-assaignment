@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-hot-toast'
 
 const CartSelectItem= ({ product,removeDbItem}) => {
   const { id, name, price, quantity, picture } = product
@@ -29,7 +30,7 @@ const CartSelectItem= ({ product,removeDbItem}) => {
           </div>
           <div className='flex text-sm divide-x'>
             <button
-              onClick={() =>removeDbItem (id)}
+              onClick={() =>removeDbItem (id,toast.error('item Remove 🔥'))}
               type='button'
               className='flex items-center px-2 py-1 pl-0 space-x-1'
             >

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 // import { useLoaderData } from 'react-router-dom';
 import CardItems from './Card/CardItems';
-import { addDb, itemCollected } from './LocalStroge/FakeDb';
+import { addDb} from './LocalStroge/FakeDb';
 import { CartContext, ProductsContext } from '../App';
 
 const Shop = () => {

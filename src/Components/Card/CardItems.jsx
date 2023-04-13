@@ -1,7 +1,8 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
 const CardItems = ({product,addDbLocal}) => {
-    const {price, picture,name, category,id} = product;
+    const {price, picture,name, category} = product;
 
 
 
@@ -13,7 +14,9 @@ const CardItems = ({product,addDbLocal}) => {
 
                 <p>Category : {category}</p>
                 <p className='font-bold'>Price : {price}</p>
-                <button className='btn w-full p-3 font-bold mt-5 ' onClick={()=> addDbLocal(product)}>Add To Cart</button>
+                
+                <button className='btn w-full p-3 font-bold mt-5 ' onClick={()=> addDbLocal(product,toast.success('Cart Added 🛒'))}>Add To Cart</button>
+               
             </div>
         </div>
     );

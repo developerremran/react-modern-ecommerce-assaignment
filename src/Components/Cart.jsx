@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import CartSelectItem from './Card/CartSelectItem';
 import { removeAll, removeItemDb } from './LocalStroge/FakeDb';
 import { CartContext } from '../App';
+import { toast } from 'react-hot-toast';
 
 
 const Cart = () => {
@@ -22,9 +23,23 @@ const Cart = () => {
     SetCart(remaining)
     removeItemDb(id)
   }
+
+
   const removeLocalDb =()=>{
     
     removeAll()
+    SetCart([])
+  }
+
+  const orderComplete =()=>{
+    if(cart.length>0){
+        SetCart([])
+        removeAll()
+        return toast.success('Order Done')
+    }else{
+        toast.error('Cart Empty')
+    }
+   
   }
 
 
@@ -54,11 +69,13 @@ const Cart = () => {
                             {cart.length>0 ?
                           <button onClick={ removeLocalDb} className='btn'>Clear Cart</button> 
                          :
-                         <button className='btn'>Back To Shop</button>
+                        
+                         <button className='btn'><NavLink to='/shop'>Back To Shop</NavLink></button>
+                         
                          }
                             
                            
-                            <button className='btn'>Place Order</button>
+                            <button className='btn' onClick={orderComplete}>Place Order</button>
                         </div>
                     </ul>
                 </div>

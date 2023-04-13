@@ -34,8 +34,8 @@ const Header = () => {
                     <NavLink to='/about-us'>About Us</NavLink>
                 </ul>
 
-                <NavLink to='/start-applied'>
-                    <button className='menuItem btn md:block hidden'>Start Applying</button>
+                <NavLink to='#'>
+                    <button className='menuItem btn md:block hidden'>React Project</button>
                 </NavLink>
 
                 <span className='md:hidden block' onClick={() => setOpen(!open)}>
