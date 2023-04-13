@@ -4,36 +4,45 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App'
 import Home from './Components/Home'
-import AppliedJobs from './Components/AppliedJobs'
 import Blog from './Components/Blog'
-import Statistics from './Statistics'
-import StartApplied from './Components/StartApplied'
+import Shop from './Components/Shop'
+import Cart from './Components/Cart'
+import About from './About'
+import Error from './Components/Error'
+import getLocalCartData from './Components/Loader/CartDataLoader'
+
 
 
 const router = createBrowserRouter([
   {
     path:'/',
     element:<App />,
+    errorElement:<Error></Error>,
+    loader: getLocalCartData,
     children:[
       {
         path:'/',
         element:<Home></Home>
       },
       {
-        path:'/applied-jobs',
-        element:<AppliedJobs></AppliedJobs>
+        path:'/shop',
+        element:<Shop></Shop>,
+        // loader: ()=> fetch('/public/data/products.json')
+        
       },
       {
         path:'/blog',
         element:<Blog></Blog>
       },
       {
-        path:'/Statistics',
-        element:<Statistics></Statistics>
+        path:'/cart',
+        element:<Cart></Cart>,
+        loader: getLocalCartData,
+
       },
       {
-        path:'/start-applied',
-        element:<StartApplied></StartApplied>
+        path:'/about-us',
+        element:<About></About>
       }
     ]
 
